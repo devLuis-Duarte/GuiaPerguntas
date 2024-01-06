@@ -5,10 +5,12 @@ app.set('view engine', 'ejs');//dizendo ao express para usar o ejs como motor de
 app.get("/:nome/:lang", function(req, res){
     var nome = req.params.nome;
     var lang = req.params.lang;
+    var exibirMsg = false;
     res.render("index", {
         nome: nome,
         lang: lang,
         empresa: "Guia do programador",
+        msg: exibirMsg,
     }); //o metódo render irá converter os comandos html e apresentar o desenho da tela para o usuário passando como parâmetro o arquivo da view
 });
 
