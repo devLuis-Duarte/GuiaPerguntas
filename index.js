@@ -2,8 +2,14 @@ const express = require("express");
 const app = express();
 app.set('view engine', 'ejs');//dizendo ao express para usar o ejs como motor de engine ou template
 
-app.get("/", function(req, res){
-    res.render("home"); //o metódo render irá converter os comandos html e apresentar o desenho da tela para o usuário passando como parâmetro o arquivo da view
+app.get("/:nome/:lang", function(req, res){
+    var nome = req.params.nome;
+    var lang = req.params.lang;
+    res.render("index", {
+        nome: nome,
+        lang: lang,
+        empresa: "Guia do programador",
+    }); //o metódo render irá converter os comandos html e apresentar o desenho da tela para o usuário passando como parâmetro o arquivo da view
 });
 
 app.get("/perfil/usuario", function(req, res){
