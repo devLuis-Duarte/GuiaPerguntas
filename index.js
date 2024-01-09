@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 app.set('view engine', 'ejs');//dizendo ao express para usar o ejs como motor de engine ou template
+app.use(express.static('public'));//dizendo ao express para usar arquivos estáticos na pasta public
 
 app.get("/:nome/:lang", function(req, res){
     var nome = req.params.nome;
