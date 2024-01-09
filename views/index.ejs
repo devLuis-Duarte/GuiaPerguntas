@@ -20,5 +20,11 @@
     <% } else { %>
         <h3>Nenhum erro</h3>
         <% } %>
+
+    <% produtos.forEach(function(produto) { %> <!-- <--! Para cada elemento do forEach ele recebe um produto exibindo o nome e o preço !!-->
+        <hr>
+        <h4>Nome: <%= produto.nome %></h4>
+        <h4>Preço: <%= produto.preco %></h4>
+    <% }) %>
 </body>
 </html>
