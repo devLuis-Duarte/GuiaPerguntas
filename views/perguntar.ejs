@@ -3,25 +3,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia de perguntas</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- <--! O express busca na pasta public automaticamente, não precisa passar ela no caminho !!-->
     <link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- <--! Importando arquivo css do bootstrap !!-->
+    <link rel="stylesheet" href="/css/style.css"> <!-- <--! O express busca na pasta public automaticamente, não precisa passar ela no caminho e o css deve ser carregado após o css do bootstrap !!-->
 </head>
 <body>      
-    <div class="container">
-        <h3>Realizar pergunta</h3> <!-- <--! container é um recurso do bootstrap que permite a centralização do texto ou imgagem na tela !!-->
-        <hr>
-        
-        <form action="">
-            <label for="titulo">Título</label>
-            <input type="text" placeholder="titulo" class="form-control" id="titulo">
-            <br>
+    <nav class="navbar-light bg-primary">><!-- <--! recurso do bootstarap que permite a criação de um menu no topo da página e na classe são definidas a cor do texto e fundo do navbar!!-->
+        <a class="navbar-brand" href="/">><!-- <--! a class 'navbar-brand' permite o alinhamento do texto ou imagem à esquerda do menu navbar !!-->
+            <img src="/img/guia.png">
+        </a>
+    </nav>
+    <div class="container"><!-- <--! container é um recurso do bootstrap que permite a centralização do texto ou imgagem na tela !!-->
+        <div class="card" id="formulario-pergunta"><!-- <--! recurso do bootstarap que permite a criação de bordas na página em um formato de formulário !!-->
+            <div class="card-header"><!-- <--! cabeçalho do card !!-->
+                <h3>Realizar pergunta</h3>
+            </div>
+            <hr>
             
-            <label for="descricao">Descrição</label>
-            <textarea placeholder="descreva aqui sua pergunta" class="form-control" id="descricao" cols="30" rows="3"></textarea>   
-            <br>
-            
-            <button class="btn btn-success">Perguntar</button>
-        </form>
+            <div class="card-body"><!-- <--! corpo do card !!-->
+                <form action="">
+                    <label for="titulo">Título</label>
+                    <input type="text" placeholder="titulo" class="form-control" id="titulo">
+                    <br>
+                    
+                    <label for="descricao">Descrição</label>
+                    <textarea placeholder="descreva aqui sua pergunta" class="form-control" id="descricao" cols="30" rows="3"></textarea>   
+                    <br>
+                    
+                    <button class="btn btn-primary">Perguntar</button>
+                </form>
+            </div>
+        </div>
     </div>
     <!-- <--! "<% %>" significa exibir comandos da variável !!-->
     <!-- <--! "<%= %>" significa exibir valor da variável !!-->
