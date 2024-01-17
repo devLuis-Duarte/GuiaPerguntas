@@ -4,4 +4,4 @@ const connection = new Sequelize('guiaperguntas', 'root', 'luismiguel123', { //a
     dialect:'mysql' //tipo do banco usado
 });
 
-module.exports = connection;
+module.exports = connection; //exportando o arquivo de conexão do banco
