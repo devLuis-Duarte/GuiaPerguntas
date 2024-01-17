@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");//incluindo o modeulo bodyparser que traduz os dados enviados pelo usuário em comandos javascript e permite a utilização destes dentro do projeto
-const connection = require("./database/database");//incluindo o modulo 'connection' exportado da classe database
+const bodyParser = require("body-parser");//incluindo o módulo bodyparser que traduz os dados enviados pelo usuário em comandos javascript e permite a utilização destes dentro do projeto
+const connection = require("./database/database");//importando o arquivo correspondente à conexão do banco
+const perguntaModel = require("./database/pergunta");//importando o arquivo correspondente à model Pergunta do banco
 //Database
 
 connection
-.authenticate()
-.then(()=>{
+.authenticate()//tentando realizar a conexão com o banco
+.then(()=>{//caso dê certo
     console.log("conexao do banco feita com sucesso")
-}).catch((msgerro)=>{
+}).catch((msgerro)=>{ //caso dê errado
     console.log(msgerro);
 })
 app.set('view engine', 'ejs');//dizendo ao express para usar o ejs como motor de engine ou template
