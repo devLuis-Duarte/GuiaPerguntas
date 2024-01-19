@@ -18,8 +18,14 @@ app.use(bodyParser.urlencoded({extended: false}));//decodifica os dados enviados
 //app.use(bodyParser.json);//permite a leitura de dados de formulário via json, bem usado para API
 
 app.get("/", (req, res)=>{
-    res.render("index");
-}); //o metódo render irá converter os comandos html e apresentar o desenho da tela para o usuário passando como parâmetro o arquivo da view
+    Pergunta.findAll({raw: true})//semelhante ao comando SELECT * FROM Perguntas no SQL, listará todas as perguntas. o raw permite a listagem apenas dos atributos da tabela
+    .then(perguntas=>{
+        res.render("index", { //o metódo render irá converter os comandos html e apresentar o desenho da tela para o usuário passando como parâmetro o arquivo da view
+            perguntas: perguntas //criando variável perguntas e recebendo as perguntas do banco
+        });
+    });
+    
+}); 
 
 //Rotas
 app.get("/perguntar", (req, res)=>{
