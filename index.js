@@ -18,10 +18,11 @@ app.use(bodyParser.urlencoded({extended: false}));//decodifica os dados enviados
 //app.use(bodyParser.json);//permite a leitura de dados de formulário via json, bem usado para API
 
 app.get("/", (req, res)=>{
-    Pergunta.findAll({raw: true})//semelhante ao comando SELECT * FROM Perguntas no SQL, listará todas as perguntas. o raw permite a listagem apenas dos atributos da tabela
-    .then(perguntas=>{
+    Pergunta.findAll({raw: true,//semelhante ao comando SELECT * FROM Perguntas no SQL, listará todas as perguntas. o raw permite a listagem apenas dos atributos da tabela
+    order:[['id', 'DESC']//order permite a ordenação dos elementos a partir de um atribudo(primeiro parâmetro) e a ordem deles(segundo parâmetro). DESC é descrescente e ASC é crescente
+]}).then(perguntas=>{//acessando as perguntas do banco
         res.render("index", { //o metódo render irá converter os comandos html e apresentar o desenho da tela para o usuário passando como parâmetro o arquivo da view
-            perguntas: perguntas //criando variável perguntas e recebendo as perguntas do banco
+            perguntas: perguntas //mandando as perguntas do banco(primeira variável) na variável criada que as recebe perguntas(segunda variável)
         });
     });
     
