@@ -48,6 +48,19 @@ app.post("/salvarPergunta", (req, res)=>{ //passando a rota do tipo post
     
 });
 
+app.get("/pergunta/:id", (req, res)=> {
+    var id = req.params.id;
+    Pergunta.findOne({//este método buscará apenas um dado
+        where: {id : id}//busque a pergunta que tiver o id passado da rota igual ao da pergunta no banco
+    }).then(pergunta => { //passando a pergunta do banco correspondente ao id da rota
+        if(pergunta != undefined){//caso seja diferente de undefined, significa que ele achou a pergunta, então ele vai mostrar a pergunta
+            res.render("pergunta");
+        }else {//caso seja unndefined, significa que ele não achou a pergunta, então ele redirecionará para a página inicial
+            res.redirect("/");
+        }
+    });
+});
+
 app.listen(3000,()=>{
     console.log("servidor rodando");
 });
