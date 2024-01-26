@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");//incluindo o módulo bodyparser que traduz os dados enviados pelo usuário em comandos javascript e permite a utilização destes dentro do projeto
 const connection = require("./database/database");//importando o arquivo correspondente à conexão do banco
 const Pergunta = require("./database/pergunta");//importando o arquivo correspondente à model Pergunta do banco
+const Resposta = require("./database/Resposta");
 //Database
 
 connection
