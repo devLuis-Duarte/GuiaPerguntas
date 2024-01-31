@@ -6,7 +6,7 @@ const Resposta = connection.define('respostas', {
         type: Sequelize.TEXT,
         alloNull: false,
     },
-    perguntaId: {//relacionamento de tabela. à tabela pergunta
+    perguntaId: {//relacionamento de tabela à tabela pergunta (chave estrangeira) id da pergunta
         type: Sequelize.INTEGER,
         allowNull: false,
     }

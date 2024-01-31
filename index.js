@@ -55,9 +55,17 @@ app.get("/pergunta/:id", (req, res)=> {
         where: {id : id}//busque a pergunta que tiver o id passado da rota igual ao da pergunta no banco
     }).then(pergunta => { //passando a pergunta do banco correspondente ao id da rota
         if(pergunta != undefined){//caso seja diferente de undefined, significa que ele achou a pergunta, então ele vai mostrar a pergunta
-            res.render("pergunta", {
-                pergunta: pergunta
-            });
+            
+            Resposta.findAll({//exibindo todas as respostas
+                where: {perguntaId : pergunta.id},//onde as respostas tenham o campo perguntaId igual ao id de uma pergunta no banco 
+                order: [['id', 'DESC']]
+            }).then(respostas => {
+                res.render("pergunta", {
+                    pergunta: pergunta,
+                    respostas: respostas,
+                });
+            })
+
         }else {//caso seja unndefined, significa que ele não achou a pergunta, então ele redirecionará para a página inicial
             res.redirect("/");
         }
