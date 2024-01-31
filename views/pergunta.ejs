@@ -11,12 +11,12 @@
         <br>
                 
         <h4>Responda</h4>
-            <form action="" id="formulario-resposta">
+            <form action="/responder" method="post">
                 <label for="corpo">Resposta</label>
                     <textarea placeholder="Digite sua resposta" class="form-control" name="corpo" cols="30" rows="3"></textarea>
                     <br>
-                    <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
                     
+                    <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
                     <button type="submit" class="btn btn-primary">Responder</button>
             </form>
         
